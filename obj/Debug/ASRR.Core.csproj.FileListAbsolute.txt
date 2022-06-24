@@ -1,0 +1,9 @@
+C:\Users\Administrator\source\repos\BouwDeck.Revit.Tools\lib\lib-asrr-core\obj\Debug\ASRR.Core.csproj.AssemblyReference.cache
+C:\Users\Administrator\source\repos\BouwDeck.Revit.Tools\lib\lib-asrr-core\obj\Debug\ASRR.Core.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\source\repos\BouwDeck.Revit.Tools\lib\lib-asrr-core\bin\Debug\ASRR.Core.dll
+C:\Users\Administrator\source\repos\BouwDeck.Revit.Tools\lib\lib-asrr-core\bin\Debug\ASRR.Core.pdb
+C:\Users\Administrator\source\repos\BouwDeck.Revit.Tools\lib\lib-asrr-core\bin\Debug\NLog.dll
+C:\Users\Administrator\source\repos\BouwDeck.Revit.Tools\lib\lib-asrr-core\bin\Debug\NLog.xml
+C:\Users\Administrator\source\repos\BouwDeck.Revit.Tools\lib\lib-asrr-core\obj\Debug\ASRR.Core.csproj.CopyComplete
+C:\Users\Administrator\source\repos\BouwDeck.Revit.Tools\lib\lib-asrr-core\obj\Debug\ASRR.Core.dll
+C:\Users\Administrator\source\repos\BouwDeck.Revit.Tools\lib\lib-asrr-core\obj\Debug\ASRR.Core.pdb
