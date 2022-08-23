@@ -6,3 +6,4 @@ C:\Users\Administrator\source\repos\BouwDeck.Revit.Tools\lib\lib-asrr-core\obj\R
 C:\Users\Administrator\source\repos\BouwDeck.Revit.Tools\lib\lib-asrr-core\obj\Release\ASRR.Core.csproj.CopyComplete
 C:\Users\Administrator\source\repos\BouwDeck.Revit.Tools\lib\lib-asrr-core\obj\Release\ASRR.Core.dll
 C:\Users\Administrator\source\repos\BouwDeck.Revit.Tools\lib\lib-asrr-core\obj\Release\ASRR.Core.pdb
+C:\Users\Administrator\source\repos\BouwDeck.Revit.Tools\lib\lib-asrr-core\obj\Release\ASRR.Core.csproj.AssemblyReference.cache
