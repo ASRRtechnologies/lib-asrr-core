@@ -2594,7 +2594,7 @@
             <summary>
             Writes the specified diagnostic message.
             </summary>
-            <param name="wrapperType">The name of the type that wraps Logger.</param>
+            <param name="wrapperType">Type of custom Logger wrapper.</param>
             <param name="logEvent">Log event.</param>
         </member>
         <member name="M:NLog.ILoggerBase.Log``1(NLog.LogLevel,``0)">
@@ -4065,10 +4065,7 @@
             </summary>
         </member>
         <member name="M:NLog.Conditions.ConditionExceptionExpression.ToString">
-            <summary>
-            Returns a string representation of this expression.
-            </summary>
-            <returns>The '<b>message</b>' string.</returns>
+            <inheritdoc/>
         </member>
         <member name="M:NLog.Conditions.ConditionExceptionExpression.EvaluateNode(NLog.LogEventInfo)">
             <summary>
@@ -4128,10 +4125,7 @@
             <value>The layout.</value>
         </member>
         <member name="M:NLog.Conditions.ConditionLayoutExpression.ToString">
-            <summary>
-            Returns a string representation of this expression.
-            </summary>
-            <returns>String literal in single quotes.</returns>
+            <inheritdoc/>
         </member>
         <member name="M:NLog.Conditions.ConditionLayoutExpression.EvaluateNode(NLog.LogEventInfo)">
             <summary>
@@ -4147,10 +4141,7 @@
             </summary>
         </member>
         <member name="M:NLog.Conditions.ConditionLevelExpression.ToString">
-            <summary>
-            Returns a string representation of the expression.
-            </summary>
-            <returns>The '<b>level</b>' string.</returns>
+            <inheritdoc/>
         </member>
         <member name="M:NLog.Conditions.ConditionLevelExpression.EvaluateNode(NLog.LogEventInfo)">
             <summary>
@@ -4177,10 +4168,7 @@
             <value>The literal value.</value>
         </member>
         <member name="M:NLog.Conditions.ConditionLiteralExpression.ToString">
-            <summary>
-            Returns a string representation of the expression.
-            </summary>
-            <returns>The literal value.</returns>
+            <inheritdoc/>
         </member>
         <member name="M:NLog.Conditions.ConditionLiteralExpression.EvaluateNode(NLog.LogEventInfo)">
             <summary>
@@ -4195,10 +4183,7 @@
             </summary>
         </member>
         <member name="M:NLog.Conditions.ConditionLoggerNameExpression.ToString">
-            <summary>
-            Returns a string representation of this expression.
-            </summary>
-            <returns>A <b>logger</b> string.</returns>
+            <inheritdoc/>
         </member>
         <member name="M:NLog.Conditions.ConditionLoggerNameExpression.EvaluateNode(NLog.LogEventInfo)">
             <summary>
@@ -4213,10 +4198,7 @@
             </summary>
         </member>
         <member name="M:NLog.Conditions.ConditionMessageExpression.ToString">
-            <summary>
-            Returns a string representation of this expression.
-            </summary>
-            <returns>The '<b>message</b>' string.</returns>
+            <inheritdoc/>
         </member>
         <member name="M:NLog.Conditions.ConditionMessageExpression.EvaluateNode(NLog.LogEventInfo)">
             <summary>
@@ -4250,9 +4232,7 @@
             </summary>
         </member>
         <member name="M:NLog.Conditions.ConditionMethodExpression.ToString">
-            <summary>
-            Returns a string representation of the expression.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="M:NLog.Conditions.ConditionMethodExpression.EvaluateNode(NLog.LogEventInfo)">
             <summary>
@@ -4279,9 +4259,7 @@
             <value>The expression.</value>
         </member>
         <member name="M:NLog.Conditions.ConditionNotExpression.ToString">
-            <summary>
-            Returns a string representation of the expression.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="M:NLog.Conditions.ConditionNotExpression.EvaluateNode(NLog.LogEventInfo)">
             <inheritdoc/>
@@ -4311,9 +4289,7 @@
             <value>The right expression.</value>
         </member>
         <member name="M:NLog.Conditions.ConditionOrExpression.ToString">
-            <summary>
-            Returns a string representation of the expression.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="M:NLog.Conditions.ConditionOrExpression.EvaluateNode(NLog.LogEventInfo)">
             <summary>
@@ -4355,9 +4331,7 @@
             <value>The operator.</value>
         </member>
         <member name="M:NLog.Conditions.ConditionRelationalExpression.ToString">
-            <summary>
-            Returns a string representation of the expression.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="M:NLog.Conditions.ConditionRelationalExpression.EvaluateNode(NLog.LogEventInfo)">
             <inheritdoc/>
@@ -4970,11 +4944,7 @@
             </summary>
         </member>
         <member name="M:NLog.Config.Factory`2.RegisterDefinition(System.String,System.Type)">
-            <summary>
-            Registers a single type definition.
-            </summary>
-            <param name="itemName">The item name.</param>
-            <param name="itemDefinition">The type of the item.</param>
+            <inheritdoc/>
         </member>
         <member name="M:NLog.Config.Factory`2.RegisterDefinition(System.String,System.Type,System.String,System.String)">
             <summary>
@@ -4986,27 +4956,13 @@
             <param name="itemNamePrefix">The item name prefix.</param>
         </member>
         <member name="M:NLog.Config.Factory`2.TryGetDefinition(System.String,System.Type@)">
-            <summary>
-            Tries to get registered item definition.
-            </summary>
-            <param name="itemName">Name of the item.</param>
-            <param name="result">Reference to a variable which will store the item definition.</param>
-            <returns>Item definition.</returns>
+            <inheritdoc/>
         </member>
         <member name="M:NLog.Config.Factory`2.TryCreateInstance(System.String,`0@)">
-            <summary>
-            Tries to create an item instance.
-            </summary>
-            <param name="itemName">Name of the item.</param>
-            <param name="result">The result.</param>
-            <returns>True if instance was created successfully, false otherwise.</returns>
+            <inheritdoc/>
         </member>
         <member name="M:NLog.Config.Factory`2.CreateInstance(System.String)">
-            <summary>
-            Creates an item instance.
-            </summary>
-            <param name="itemName">The name of the item.</param>
-            <returns>Created item.</returns>
+            <inheritdoc/>
         </member>
         <member name="T:NLog.Config.LayoutRendererFactory">
             <summary>
@@ -5633,6 +5589,12 @@
             <param name="target">Target to be written to when the rule matches.</param>
             <param name="loggerNamePattern">Logger name pattern. It may include the '*' wildcard at the beginning, at the end or at both ends.</param>
             <param name="final">Gets or sets a value indicating whether to quit processing any further rule when this one matches.</param>
+        </member>
+        <member name="M:NLog.Config.LoggingConfiguration.AddRule(NLog.Config.LoggingRule)">
+            <summary>
+            Add a rule object.
+            </summary>
+            <param name="rule">rule object to add</param>
         </member>
         <member name="M:NLog.Config.LoggingConfiguration.AddRuleForOneLevel(NLog.LogLevel,System.String,System.String)">
             <summary>
@@ -9060,14 +9022,22 @@
             </summary>
             <param name="bytes">The bytes.</param>
         </member>
+        <member name="M:NLog.Internal.FileAppenders.BaseFileAppender.Write(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Writes the specified bytes to a file.
+            </summary>
+            <param name="bytes">The bytes array.</param>
+            <param name="offset">The bytes array offset.</param>
+            <param name="count">The number of bytes.</param>
+        </member>
         <member name="M:NLog.Internal.FileAppenders.BaseFileAppender.Flush">
             <summary>
-            Flushes this instance.
+            Flushes this file-appender instance.
             </summary>
         </member>
         <member name="M:NLog.Internal.FileAppenders.BaseFileAppender.Close">
             <summary>
-            Closes this instance.
+            Closes this file-appender instance.
             </summary>
         </member>
         <member name="M:NLog.Internal.FileAppenders.BaseFileAppender.GetFileCreationTimeUtc">
@@ -9124,10 +9094,7 @@
             <value>The mutex for archiving.</value>
         </member>
         <member name="M:NLog.Internal.FileAppenders.BaseMutexFileAppender.Dispose(System.Boolean)">
-            <summary>
-            Releases unmanaged and - optionally - managed resources.
-            </summary>
-            <param name="disposing">True to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+            <inheritdoc/>
         </member>
         <member name="M:NLog.Internal.FileAppenders.BaseMutexFileAppender.CreateSharableMutex(System.String)">
             <summary>
@@ -9150,35 +9117,19 @@
             <param name="parameters">The parameters.</param>
         </member>
         <member name="M:NLog.Internal.FileAppenders.CountingSingleProcessFileAppender.Close">
-            <summary>
-            Closes this instance of the appender.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="M:NLog.Internal.FileAppenders.CountingSingleProcessFileAppender.Flush">
-            <summary>
-            Flushes this current appender.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="M:NLog.Internal.FileAppenders.CountingSingleProcessFileAppender.GetFileCreationTimeUtc">
-            <summary>
-            Gets the creation time for a file associated with the appender. The time returned is in Coordinated Universal 
-            Time [UTC] standard.
-            </summary>
-            <returns>The file creation time.</returns>
+            <inheritdoc/>
         </member>
         <member name="M:NLog.Internal.FileAppenders.CountingSingleProcessFileAppender.GetFileLength">
-            <summary>
-            Gets the length in bytes of the file associated with the appender.
-            </summary>
-            <returns>A long value representing the length of the file in bytes.</returns>
+            <inheritdoc/>
         </member>
         <member name="M:NLog.Internal.FileAppenders.CountingSingleProcessFileAppender.Write(System.Byte[],System.Int32,System.Int32)">
-            <summary>
-            Writes the specified bytes to a file.
-            </summary>
-            <param name="bytes">The bytes array.</param>
-            <param name="offset">The bytes array offset.</param>
-            <param name="count">The number of bytes.</param>
+            <inheritdoc/>
         </member>
         <member name="T:NLog.Internal.FileAppenders.CountingSingleProcessFileAppender.Factory">
             <summary>
@@ -9186,14 +9137,7 @@
             </summary>
         </member>
         <member name="M:NLog.Internal.FileAppenders.CountingSingleProcessFileAppender.Factory.NLog#Internal#FileAppenders#IFileAppenderFactory#Open(System.String,NLog.Internal.FileAppenders.ICreateFileParameters)">
-            <summary>
-            Opens the appender for given file name and parameters.
-            </summary>
-            <param name="fileName">Name of the file.</param>
-            <param name="parameters">Creation parameters.</param>
-            <returns>
-            Instance of <see cref="T:NLog.Internal.FileAppenders.BaseFileAppender"/> which can be used to write to the file.
-            </returns>
+            <inheritdoc/>
         </member>
         <member name="T:NLog.Internal.FileAppenders.FileAppenderCache">
             <summary>
@@ -9459,35 +9403,19 @@
             <param name="parameters">The parameters.</param>
         </member>
         <member name="M:NLog.Internal.FileAppenders.MutexMultiProcessFileAppender.Write(System.Byte[],System.Int32,System.Int32)">
-            <summary>
-            Writes the specified bytes.
-            </summary>
-            <param name="bytes">The bytes array.</param>
-            <param name="offset">The bytes array offset.</param>
-            <param name="count">The number of bytes.</param>
+            <inheritdoc/>
         </member>
         <member name="M:NLog.Internal.FileAppenders.MutexMultiProcessFileAppender.Close">
-            <summary>
-            Closes this instance.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="M:NLog.Internal.FileAppenders.MutexMultiProcessFileAppender.Flush">
-            <summary>
-            Flushes this instance.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="M:NLog.Internal.FileAppenders.MutexMultiProcessFileAppender.GetFileCreationTimeUtc">
-            <summary>
-            Gets the creation time for a file associated with the appender. The time returned is in Coordinated Universal 
-            Time [UTC] standard.
-            </summary>
-            <returns>The file creation time.</returns>
+            <inheritdoc/>
         </member>
         <member name="M:NLog.Internal.FileAppenders.MutexMultiProcessFileAppender.GetFileLength">
-            <summary>
-            Gets the length in bytes of the file associated with the appender.
-            </summary>
-            <returns>A long value representing the length of the file in bytes.</returns>
+            <inheritdoc/>
         </member>
         <member name="T:NLog.Internal.FileAppenders.MutexMultiProcessFileAppender.Factory">
             <summary>
@@ -9495,14 +9423,7 @@
             </summary>
         </member>
         <member name="M:NLog.Internal.FileAppenders.MutexMultiProcessFileAppender.Factory.NLog#Internal#FileAppenders#IFileAppenderFactory#Open(System.String,NLog.Internal.FileAppenders.ICreateFileParameters)">
-            <summary>
-            Opens the appender for given file name and parameters.
-            </summary>
-            <param name="fileName">Name of the file.</param>
-            <param name="parameters">Creation parameters.</param>
-            <returns>
-            Instance of <see cref="T:NLog.Internal.FileAppenders.BaseFileAppender"/> which can be used to write to the file.
-            </returns>
+            <inheritdoc/>
         </member>
         <member name="T:NLog.Internal.FileAppenders.NullAppender">
             <summary>
@@ -9517,14 +9438,7 @@
             </summary>
         </member>
         <member name="M:NLog.Internal.FileAppenders.NullAppender.Factory.NLog#Internal#FileAppenders#IFileAppenderFactory#Open(System.String,NLog.Internal.FileAppenders.ICreateFileParameters)">
-            <summary>
-            Opens the appender for given file name and parameters.
-            </summary>
-            <param name="fileName">Name of the file.</param>
-            <param name="parameters">Creation parameters.</param>
-            <returns>
-            Instance of <see cref="T:NLog.Internal.FileAppenders.BaseFileAppender"/> which can be used to write to the file.
-            </returns>
+            <inheritdoc/>
         </member>
         <member name="T:NLog.Internal.FileAppenders.RetryingMultiProcessFileAppender">
             <summary>
@@ -9540,35 +9454,19 @@
             <param name="parameters">The parameters.</param>
         </member>
         <member name="M:NLog.Internal.FileAppenders.RetryingMultiProcessFileAppender.Write(System.Byte[],System.Int32,System.Int32)">
-            <summary>
-            Writes the specified bytes.
-            </summary>
-            <param name="bytes">The bytes array.</param>
-            <param name="offset">The bytes array offset.</param>
-            <param name="count">The number of bytes.</param>
+            <inheritdoc/>
         </member>
         <member name="M:NLog.Internal.FileAppenders.RetryingMultiProcessFileAppender.Flush">
-            <summary>
-            Flushes this instance.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="M:NLog.Internal.FileAppenders.RetryingMultiProcessFileAppender.Close">
-            <summary>
-            Closes this instance.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="M:NLog.Internal.FileAppenders.RetryingMultiProcessFileAppender.GetFileCreationTimeUtc">
-            <summary>
-            Gets the creation time for a file associated with the appender. The time returned is in Coordinated Universal 
-            Time [UTC] standard.
-            </summary>
-            <returns>The file creation time.</returns>
+            <inheritdoc/>
         </member>
         <member name="M:NLog.Internal.FileAppenders.RetryingMultiProcessFileAppender.GetFileLength">
-            <summary>
-            Gets the length in bytes of the file associated with the appender.
-            </summary>
-            <returns>A long value representing the length of the file in bytes.</returns>
+            <inheritdoc/>
         </member>
         <member name="T:NLog.Internal.FileAppenders.RetryingMultiProcessFileAppender.Factory">
             <summary>
@@ -9576,14 +9474,7 @@
             </summary>
         </member>
         <member name="M:NLog.Internal.FileAppenders.RetryingMultiProcessFileAppender.Factory.NLog#Internal#FileAppenders#IFileAppenderFactory#Open(System.String,NLog.Internal.FileAppenders.ICreateFileParameters)">
-            <summary>
-            Opens the appender for given file name and parameters.
-            </summary>
-            <param name="fileName">Name of the file.</param>
-            <param name="parameters">Creation parameters.</param>
-            <returns>
-            Instance of <see cref="T:NLog.Internal.FileAppenders.BaseFileAppender"/> which can be used to write to the file.
-            </returns>
+            <inheritdoc/>
         </member>
         <member name="T:NLog.Internal.FileAppenders.SingleProcessFileAppender">
             <summary>
@@ -9598,35 +9489,19 @@
             <param name="parameters">The parameters.</param>
         </member>
         <member name="M:NLog.Internal.FileAppenders.SingleProcessFileAppender.Write(System.Byte[],System.Int32,System.Int32)">
-            <summary>
-            Writes the specified bytes.
-            </summary>
-            <param name="bytes">The bytes array.</param>
-            <param name="offset">The bytes array offset.</param>
-            <param name="count">The number of bytes.</param>
+            <inheritdoc/>
         </member>
         <member name="M:NLog.Internal.FileAppenders.SingleProcessFileAppender.Flush">
-            <summary>
-            Flushes this instance.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="M:NLog.Internal.FileAppenders.SingleProcessFileAppender.Close">
-            <summary>
-            Closes this instance.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="M:NLog.Internal.FileAppenders.SingleProcessFileAppender.GetFileCreationTimeUtc">
-            <summary>
-            Gets the creation time for a file associated with the appender. The time returned is in Coordinated Universal 
-            Time [UTC] standard.
-            </summary>
-            <returns>The file creation time.</returns>
+            <inheritdoc/>
         </member>
         <member name="M:NLog.Internal.FileAppenders.SingleProcessFileAppender.GetFileLength">
-            <summary>
-            Gets the length in bytes of the file associated with the appender.
-            </summary>
-            <returns>A long value representing the length of the file in bytes.</returns>
+            <inheritdoc/>
         </member>
         <member name="T:NLog.Internal.FileAppenders.SingleProcessFileAppender.Factory">
             <summary>
@@ -9634,14 +9509,7 @@
             </summary>
         </member>
         <member name="M:NLog.Internal.FileAppenders.SingleProcessFileAppender.Factory.NLog#Internal#FileAppenders#IFileAppenderFactory#Open(System.String,NLog.Internal.FileAppenders.ICreateFileParameters)">
-            <summary>
-            Opens the appender for given file name and parameters.
-            </summary>
-            <param name="fileName">Name of the file.</param>
-            <param name="parameters">Creation parameters.</param>
-            <returns>
-            Instance of <see cref="T:NLog.Internal.FileAppenders.BaseFileAppender"/> which can be used to write to the file.
-            </returns>
+            <inheritdoc/>
         </member>
         <member name="T:NLog.Internal.FileAppenders.WindowsMultiProcessFileAppender">
             <summary>
@@ -9665,28 +9533,19 @@
             <param name="fileName">File to create or open</param>
         </member>
         <member name="M:NLog.Internal.FileAppenders.WindowsMultiProcessFileAppender.Write(System.Byte[],System.Int32,System.Int32)">
-            <summary>
-            Writes the specified bytes.
-            </summary>
-            <param name="bytes">The bytes array.</param>
-            <param name="offset">The bytes array offset.</param>
-            <param name="count">The number of bytes.</param>
+            <inheritdoc/>
         </member>
         <member name="M:NLog.Internal.FileAppenders.WindowsMultiProcessFileAppender.Close">
-            <summary>
-            Closes this instance.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="M:NLog.Internal.FileAppenders.WindowsMultiProcessFileAppender.Flush">
-            <summary>
-            Flushes this instance.
-            </summary>
+            <inheritdoc/>
+        </member>
+        <member name="M:NLog.Internal.FileAppenders.WindowsMultiProcessFileAppender.GetFileCreationTimeUtc">
+            <inheritdoc/>
         </member>
         <member name="M:NLog.Internal.FileAppenders.WindowsMultiProcessFileAppender.GetFileLength">
-            <summary>
-            Gets the length in bytes of the file associated with the appender.
-            </summary>
-            <returns>A long value representing the length of the file in bytes.</returns>
+            <inheritdoc/>
         </member>
         <member name="T:NLog.Internal.FileAppenders.WindowsMultiProcessFileAppender.Factory">
             <summary>
@@ -9694,14 +9553,7 @@
             </summary>
         </member>
         <member name="M:NLog.Internal.FileAppenders.WindowsMultiProcessFileAppender.Factory.NLog#Internal#FileAppenders#IFileAppenderFactory#Open(System.String,NLog.Internal.FileAppenders.ICreateFileParameters)">
-            <summary>
-            Opens the appender for given file name and parameters.
-            </summary>
-            <param name="fileName">Name of the file.</param>
-            <param name="parameters">Creation parameters.</param>
-            <returns>
-            Instance of <see cref="T:NLog.Internal.FileAppenders.BaseFileAppender"/> which can be used to write to the file.
-            </returns>
+            <inheritdoc/>
         </member>
         <member name="T:NLog.Internal.FilePathLayout">
             <summary>
@@ -10695,9 +10547,9 @@
             <param name="builder"></param>
             <param name="value">value to append</param>
         </member>
-        <member name="M:NLog.Internal.StringBuilderExt.AppendXmlDateTimeRoundTrip(System.Text.StringBuilder,System.DateTime)">
+        <member name="M:NLog.Internal.StringBuilderExt.AppendXmlDateTimeUtcRoundTrip(System.Text.StringBuilder,System.DateTime)">
             <summary>
-            Convert DateTime into UTC and format to yyyy-MM-ddTHH:mm:ss.fffffffZ - ISO 6801 date (Round-Trip-Time)
+            Convert DateTime into UTC and format to yyyy-MM-ddTHH:mm:ss.fffffffZ - ISO 8601 Compliant Date Format (Round-Trip-Time)
             </summary>
         </member>
         <member name="M:NLog.Internal.StringBuilderExt.ClearBuilder(System.Text.StringBuilder)">
@@ -11164,11 +11016,6 @@
             The entry assembly can't be found in some cases e.g. ASP.NET, unit tests, etc.
             </remarks>
         </member>
-        <member name="M:NLog.LayoutRenderers.AssemblyVersionLayoutRenderer.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:NLog.LayoutRenderers.AssemblyVersionLayoutRenderer" /> class.
-            </summary>
-        </member>
         <member name="P:NLog.LayoutRenderers.AssemblyVersionLayoutRenderer.Name">
             <summary>
             The (full) name of the assembly. If <c>null</c>, using the entry assembly.
@@ -11184,6 +11031,12 @@
             - UWP earlier than .NET Standard 1.5: Value for <see cref="F:NLog.LayoutRenderers.AssemblyVersionType.Assembly"/> is always returned unless the <see cref="P:NLog.LayoutRenderers.AssemblyVersionLayoutRenderer.Name"/> parameter is specified.
             </remarks>
             <docgen category='Layout Options' order='10' />
+        </member>
+        <member name="P:NLog.LayoutRenderers.AssemblyVersionLayoutRenderer.Default">
+            <summary>
+             The default value to render if the Version is not available
+            </summary>
+             <docgen category='Layout Options' order='10' />
         </member>
         <member name="P:NLog.LayoutRenderers.AssemblyVersionLayoutRenderer.Format">
             <summary>
@@ -11210,7 +11063,6 @@
             <summary>
             Gets the assembly specified by <see cref="P:NLog.LayoutRenderers.AssemblyVersionLayoutRenderer.Name"/>, or entry assembly otherwise
             </summary>
-            <returns>Found assembly</returns>
         </member>
         <member name="T:NLog.LayoutRenderers.AssemblyVersionType">
             <summary>
@@ -11229,7 +11081,7 @@
         </member>
         <member name="F:NLog.LayoutRenderers.AssemblyVersionType.Informational">
             <summary>
-            Gets additional version information.
+            Gets the product version, extracted from the additional version information.
             </summary>
         </member>
         <member name="T:NLog.LayoutRenderers.EnvironmentUserLayoutRenderer">
@@ -12050,6 +11902,20 @@
             <docgen category='Layout Options' order='10' />
         </member>
         <member name="M:NLog.LayoutRenderers.NdlcTimingLayoutRenderer.Append(System.Text.StringBuilder,NLog.LogEventInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="T:NLog.LayoutRenderers.ScopeContextIndentLayoutRenderer">
+            <summary>
+            Renders the nested states from <see cref="T:NLog.ScopeContext"/> like a callstack
+            </summary>
+        </member>
+        <member name="P:NLog.LayoutRenderers.ScopeContextIndentLayoutRenderer.Indent">
+            <summary>
+            Gets or sets the indent token.
+            </summary>
+            <docgen category='Layout Options' order='10' />
+        </member>
+        <member name="M:NLog.LayoutRenderers.ScopeContextIndentLayoutRenderer.Append(System.Text.StringBuilder,NLog.LogEventInfo)">
             <inheritdoc/>
         </member>
         <member name="T:NLog.LayoutRenderers.ScopeContextNestedStatesLayoutRenderer">
@@ -13022,6 +12888,11 @@
             Render the first character of the level.
             </summary>
         </member>
+        <member name="F:NLog.LayoutRenderers.LevelFormat.OneLetter">
+            <summary>
+            Render the first character of the level.
+            </summary>
+        </member>
         <member name="F:NLog.LayoutRenderers.LevelFormat.Ordinal">
             <summary>
             Render the ordinal (aka number) for the level.
@@ -13030,6 +12901,11 @@
         <member name="F:NLog.LayoutRenderers.LevelFormat.FullName">
             <summary>
             Render the LogLevel full name, expanding Warn / Info abbreviations
+            </summary>
+        </member>
+        <member name="F:NLog.LayoutRenderers.LevelFormat.TriLetter">
+            <summary>
+            Render the LogLevel as 3 letter abbreviations (Trc, Dbg, Inf, Wrn, Err, Ftl)
             </summary>
         </member>
         <member name="T:NLog.LayoutRenderers.LevelLayoutRenderer">
@@ -13642,6 +13518,12 @@
             Only outputs the inner layout when exception has been defined for log message.
             </summary>
         </member>
+        <member name="P:NLog.LayoutRenderers.Wrappers.OnExceptionLayoutRendererWrapper.Else">
+            <summary>
+            If <see cref="P:NLog.LogEventInfo.Exception"/> is not found, print this layout.
+            </summary>
+            <docgen category="Condition Options" order="10"/>
+        </member>
         <member name="M:NLog.LayoutRenderers.Wrappers.OnExceptionLayoutRendererWrapper.RenderInnerAndTransform(NLog.LogEventInfo,System.Text.StringBuilder,System.Int32)">
             <inheritdoc/>
         </member>
@@ -13655,6 +13537,12 @@
             <example>
             ${onhasproperties:, Properties\: ${all-event-properties}}
             </example>
+        </member>
+        <member name="P:NLog.LayoutRenderers.Wrappers.OnHasPropertiesLayoutRendererWrapper.Else">
+            <summary>
+            If <see cref="P:NLog.LogEventInfo.HasProperties"/> is not found, print this layout.
+            </summary>
+            <docgen category="Condition Options" order="10"/>
         </member>
         <member name="M:NLog.LayoutRenderers.Wrappers.OnHasPropertiesLayoutRendererWrapper.RenderInnerAndTransform(NLog.LogEventInfo,System.Text.StringBuilder,System.Int32)">
             <inheritdoc/>
@@ -14712,6 +14600,7 @@
             <summary>
             Renders formatted output using the log event as context.
             </summary>
+            <remarks>Inside a <see cref="T:NLog.Targets.Target"/>, <see cref="M:NLog.Targets.Target.RenderLogEvent(NLog.Layouts.Layout,NLog.LogEventInfo)"/> is preferred for performance reasons.</remarks>
             <param name="logEvent">The logging event.</param>
             <returns>The formatted output as string.</returns>
         </member>
@@ -15588,6 +15477,7 @@
             <summary>
             Renders the logevent into a result-value by using the provided layout
             </summary>
+            <remarks>Inside a <see cref="T:NLog.Targets.Target"/>, <see cref="M:NLog.Targets.Target.RenderLogEvent(NLog.Layouts.Layout,NLog.LogEventInfo)"/> is preferred for performance reasons.</remarks>
             <typeparam name="T"></typeparam>
             <param name="layout">The layout.</param>
             <param name="logEvent">The logevent info.</param>
@@ -15715,6 +15605,12 @@
             <param name="callerMemberName">The method or property name of the caller to the method. This is set at by the compiler.</param>
             <param name="callerFilePath">The full path of the source file that contains the caller. This is set at by the compiler.</param>
             <param name="callerLineNumber">The line number in the source file at which the method is called. This is set at by the compiler.</param>
+        </member>
+        <member name="M:NLog.LogEventBuilder.Log(System.Type)">
+            <summary>
+            Writes the log event to the underlying logger.
+            </summary>
+            <param name="wrapperType">Type of custom Logger wrapper.</param>
         </member>
         <member name="T:NLog.LogEventInfo">
             <summary>
@@ -19634,7 +19530,7 @@
             <summary>
             Writes the specified diagnostic message.
             </summary>
-            <param name="wrapperType">The name of the type that wraps Logger.</param>
+            <param name="wrapperType">Type of custom Logger wrapper.</param>
             <param name="logEvent">Log event.</param>
         </member>
         <member name="M:NLog.Logger.Log``1(NLog.LogLevel,``0)">
@@ -21014,7 +20910,7 @@
         </member>
         <member name="M:NLog.SetupExtensionsBuilderExtensions.RegisterTarget``1(NLog.Config.ISetupExtensionsBuilder,System.String)">
             <summary>
-            Register a custom Target.
+            Register a custom NLog Target.
             </summary>
             <typeparam name="T">Type of the Target.</typeparam>
             <param name="setupBuilder">Fluent interface parameter.</param>
@@ -21022,15 +20918,31 @@
         </member>
         <member name="M:NLog.SetupExtensionsBuilderExtensions.RegisterTarget(NLog.Config.ISetupExtensionsBuilder,System.String,System.Type)">
             <summary>
-            Register a custom Target.
+            Register a custom NLog Target.
             </summary>
             <param name="setupBuilder">Fluent interface parameter.</param>
             <param name="name">Type name of the Target</param>
             <param name="targetType">The target type-alias for use in NLog configuration</param>
         </member>
+        <member name="M:NLog.SetupExtensionsBuilderExtensions.RegisterLayout``1(NLog.Config.ISetupExtensionsBuilder,System.String)">
+            <summary>
+            Register a custom NLog Layout.
+            </summary>
+            <typeparam name="T">Type of the layout renderer.</typeparam>
+            <param name="setupBuilder">Fluent interface parameter.</param>
+            <param name="typeAlias">The layout type-alias for use in NLog configuration. Will extract from class-attribute when unassigned.</param>
+        </member>
+        <member name="M:NLog.SetupExtensionsBuilderExtensions.RegisterLayout(NLog.Config.ISetupExtensionsBuilder,System.String,System.Type)">
+            <summary>
+            Register a custom NLog Layout.
+            </summary>
+            <param name="setupBuilder">Fluent interface parameter.</param>
+            <param name="layoutType">Type of the layout.</param>
+            <param name="typeAlias">The layout type-alias for use in NLog configuration</param>
+        </member>
         <member name="M:NLog.SetupExtensionsBuilderExtensions.RegisterLayoutRenderer``1(NLog.Config.ISetupExtensionsBuilder,System.String)">
             <summary>
-            Register a custom layout renderer.
+            Register a custom NLog LayoutRenderer.
             </summary>
             <typeparam name="T">Type of the layout renderer.</typeparam>
             <param name="setupBuilder">Fluent interface parameter.</param>
@@ -21038,7 +20950,7 @@
         </member>
         <member name="M:NLog.SetupExtensionsBuilderExtensions.RegisterLayoutRenderer(NLog.Config.ISetupExtensionsBuilder,System.String,System.Type)">
             <summary>
-            Register a custom layout renderer.
+            Register a custom NLog LayoutRenderer.
             </summary>
             <param name="setupBuilder">Fluent interface parameter.</param>
             <param name="layoutRendererType">Type of the layout renderer.</param>
@@ -21046,7 +20958,7 @@
         </member>
         <member name="M:NLog.SetupExtensionsBuilderExtensions.RegisterLayoutRenderer(NLog.Config.ISetupExtensionsBuilder,System.String,System.Func{NLog.LogEventInfo,System.Object})">
             <summary>
-            Register a custom layout renderer with a callback function <paramref name="layoutMethod"/>. The callback receives the logEvent.
+            Register a custom NLog LayoutRenderer with a callback function <paramref name="layoutMethod"/>. The callback receives the logEvent.
             </summary>
             <param name="setupBuilder">Fluent interface parameter.</param>
             <param name="name">The layout-renderer type-alias for use in NLog configuration - without '${ }'</param>
@@ -21054,7 +20966,7 @@
         </member>
         <member name="M:NLog.SetupExtensionsBuilderExtensions.RegisterLayoutRenderer(NLog.Config.ISetupExtensionsBuilder,System.String,System.Func{NLog.LogEventInfo,NLog.Config.LoggingConfiguration,System.Object})">
             <summary>
-            Register a custom layout renderer with a callback function <paramref name="layoutMethod"/>. The callback receives the logEvent and the current configuration.
+            Register a custom NLog LayoutRenderer with a callback function <paramref name="layoutMethod"/>. The callback receives the logEvent and the current configuration.
             </summary>
             <param name="setupBuilder">Fluent interface parameter.</param>
             <param name="name">The layout-renderer type-alias for use in NLog configuration - without '${ }'</param>
@@ -21062,7 +20974,7 @@
         </member>
         <member name="M:NLog.SetupExtensionsBuilderExtensions.RegisterLayoutRenderer(NLog.Config.ISetupExtensionsBuilder,System.String,System.Func{NLog.LogEventInfo,System.Object},NLog.Layouts.LayoutRenderOptions)">
             <summary>
-            Register a custom layout renderer with a callback function <paramref name="layoutMethod"/>. The callback receives the logEvent.
+            Register a custom NLog LayoutRenderer with a callback function <paramref name="layoutMethod"/>. The callback receives the logEvent.
             </summary>
             <param name="setupBuilder">Fluent interface parameter.</param>
             <param name="name">The layout-renderer type-alias for use in NLog configuration - without '${ }'</param>
@@ -21071,7 +20983,7 @@
         </member>
         <member name="M:NLog.SetupExtensionsBuilderExtensions.RegisterLayoutRenderer(NLog.Config.ISetupExtensionsBuilder,System.String,System.Func{NLog.LogEventInfo,NLog.Config.LoggingConfiguration,System.Object},NLog.Layouts.LayoutRenderOptions)">
             <summary>
-            Register a custom layout renderer with a callback function <paramref name="layoutMethod"/>. The callback receives the logEvent and the current configuration.
+            Register a custom NLog LayoutRenderer with a callback function <paramref name="layoutMethod"/>. The callback receives the logEvent and the current configuration.
             </summary>
             <param name="setupBuilder">Fluent interface parameter.</param>
             <param name="name">The layout-renderer type-alias for use in NLog configuration - without '${ }'</param>
@@ -22623,6 +22535,7 @@
             <summary>
             Max size in characters (limitation of the EventLog API).
             </summary>
+            <seealso href="https://docs.microsoft.com/en-gb/windows/win32/api/winbase/nf-winbase-reporteventw"/>
         </member>
         <member name="M:NLog.Targets.EventLogTarget.#ctor">
             <summary>
@@ -22958,7 +22871,7 @@
             Archives the log-files using a rolling style numbering (the most recent is always #0 then
             #1, ..., #N. 
             
-            When the number of archive files exceed <see cref="P:MaxArchiveFiles"/> the obsolete archives
+            When the number of archive files exceed <see cref="P:NLog.Targets.FileTarget.MaxArchiveFiles"/> the obsolete archives
             are deleted.
             </summary>
         </member>
@@ -26120,10 +26033,7 @@
             <param name="logEvent">The logging event.</param>
         </member>
         <member name="M:NLog.Targets.WebServiceTarget.FlushAsync(NLog.Common.AsyncContinuation)">
-            <summary>
-            Flush any pending log messages asynchronously (in case of asynchronous targets).
-            </summary>
-            <param name="asyncContinuation">The asynchronous continuation.</param>
+            <inheritdoc/>
         </member>
         <member name="M:NLog.Targets.WebServiceTarget.CloseTarget">
             <inheritdoc/>
@@ -26734,10 +26644,7 @@
             <inheritdoc/>
         </member>
         <member name="M:NLog.Targets.Wrappers.CompoundTargetBase.Write(NLog.LogEventInfo)">
-            <summary>
-            Writes logging event to the log target.
-            </summary>
-            <param name="logEvent">Logging event to be written out.</param>
+            <inheritdoc/>
         </member>
         <member name="M:NLog.Targets.Wrappers.CompoundTargetBase.FlushAsync(NLog.Common.AsyncContinuation)">
             <summary>
@@ -27509,10 +27416,7 @@
             <inheritdoc/>
         </member>
         <member name="M:NLog.Targets.Wrappers.WrapperTargetBase.FlushAsync(NLog.Common.AsyncContinuation)">
-            <summary>
-            Flush any pending log messages (in case of asynchronous targets).
-            </summary>
-            <param name="asyncContinuation">The asynchronous continuation.</param>
+            <inheritdoc/>
         </member>
         <member name="M:NLog.Targets.Wrappers.WrapperTargetBase.Write(NLog.LogEventInfo)">
             <summary>
