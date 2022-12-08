@@ -52,15 +52,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Log\NLogBasedLogConfiguration.cs" />
     <Compile Include="Log\LogHandler.cs" />
+    <Compile Include="Log\NLogBasedLogConfiguration.cs" />
     <Compile Include="MathUtils\MathUtils.cs" />
     <Compile Include="Persistence\IPersistentStorageProvider.cs" />
     <Compile Include="Persistence\JsonBasedPersistenceProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.2</Version>
+    </PackageReference>
+    <PackageReference Include="NLog">
+      <Version>5.0.1</Version>
+    </PackageReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
