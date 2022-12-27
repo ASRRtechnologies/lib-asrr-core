@@ -19,11 +19,13 @@ namespace ASRR.Core.Persistence
             Directory.CreateDirectory(_path);
         }
         
-        public T Fetch<T>() where T : class
+        public T Fetch<T>() where T : class, new()
         {
-            var filePath =Path.Combine(_path, FileName<T>());
-            if (!File.Exists(filePath)) 
-                throw new FileNotFoundException($"File at path '{filePath}' does not exist");
+            var filePath = Path.Combine(_path, FileName<T>());
+            if (!File.Exists(filePath))
+                File.WriteAllText(filePath, JsonConvert.SerializeObject(new T(), Formatting.Indented));
+
+            // throw new FileNotFoundException($"File at path '{filePath}' does not exist");
 
             var deserializedObject = JsonConvert.DeserializeObject<T>(File.ReadAllText(filePath));
 
@@ -48,7 +50,7 @@ namespace ASRR.Core.Persistence
 
         private string FileName<T>() where T : class
         {
-            return nameof(T);
+            return typeof(T).Name;
         }
         
         private bool HasNullProperties<T>(T obj)
