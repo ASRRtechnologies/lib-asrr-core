@@ -8,9 +8,8 @@ namespace ASRR.Core.Persistence
 {
     public class JsonBasedPersistenceProvider : IPersistentStorageProvider
     {
-        private static readonly Logger Log = LogManager.GetCurrentClassLogger();
-
         private const string ProgramDataPath = @"C:\ProgramData\ASRR\Storage";
+        private static readonly Logger Log = LogManager.GetCurrentClassLogger();
         private readonly string _path;
 
         public JsonBasedPersistenceProvider(string directory)
