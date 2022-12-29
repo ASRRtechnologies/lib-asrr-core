@@ -21,9 +21,12 @@ namespace ASRR.Core.Persistence
         
         public T Fetch<T>() where T : class, new()
         {
-            var filePath = Path.Combine(_path, FileName<T>());
+            var filePath = FilePath<T>();
             if (!File.Exists(filePath))
+            {
                 File.WriteAllText(filePath, JsonConvert.SerializeObject(new T(), Formatting.Indented));
+                Log.Info("Settings don't exist... creating new file");
+            }
 
             // throw new FileNotFoundException($"File at path '{filePath}' does not exist");
 
