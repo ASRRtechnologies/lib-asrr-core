@@ -42,7 +42,11 @@ namespace ASRR.Core.Log
             }
 
             configuration.OpenOnButton = true;
+<<<<<<< HEAD
             var logConfiguration = NLog.LogManager.Configuration ?? new LoggingConfiguration();
+=======
+            var logConfiguration = LogManager.Configuration ?? new LoggingConfiguration();
+>>>>>>> f1eb5d85cf9b49e1e75e75055915f18ce41d774c
             logConfiguration.RemoveTarget(configuration.LogName);
             var target = new FileTarget(configuration.LogName)
             {
@@ -77,14 +81,23 @@ namespace ASRR.Core.Log
             var loggingRule = new LoggingRule(configuration.NameFilter, level, target);
             logConfiguration.LoggingRules.Add(loggingRule);
 
+<<<<<<< HEAD
             NLog.LogManager.Configuration = logConfiguration;
             log = NLog.LogManager.GetCurrentClassLogger();
+=======
+            LogManager.Configuration = logConfiguration;
+            log = LogManager.GetCurrentClassLogger();
+>>>>>>> f1eb5d85cf9b49e1e75e75055915f18ce41d774c
             log.Debug("Using programmatic config");
         }
 
         public static void RemoveLogTarget(string name)
         {
+<<<<<<< HEAD
             var logConfiguration = NLog.LogManager.Configuration;
+=======
+            var logConfiguration = LogManager.Configuration;
+>>>>>>> f1eb5d85cf9b49e1e75e75055915f18ce41d774c
             logConfiguration?.RemoveTarget(name);
         }
 

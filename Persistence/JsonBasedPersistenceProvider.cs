@@ -8,9 +8,8 @@ namespace ASRR.Core.Persistence
 {
     public class JsonBasedPersistenceProvider : IPersistentStorageProvider
     {
-        private static readonly Logger Log = LogManager.GetCurrentClassLogger();
-        
         private const string ProgramDataPath = @"C:\ProgramData\ASRR\Storage";
+        private static readonly Logger Log = LogManager.GetCurrentClassLogger();
         private readonly string _path;
 
         public JsonBasedPersistenceProvider(string directory)
@@ -18,7 +17,7 @@ namespace ASRR.Core.Persistence
             _path = Path.Combine(ProgramDataPath, directory);
             Directory.CreateDirectory(_path);
         }
-        
+
         public T Fetch<T>() where T : class, new()
         {
             var filePath = FilePath<T>();
@@ -28,13 +27,13 @@ namespace ASRR.Core.Persistence
                 Log.Info("Settings don't exist... creating new file");
             }
 
-            // throw new FileNotFoundException($"File at path '{filePath}' does not exist");
+
 
             var deserializedObject = JsonConvert.DeserializeObject<T>(File.ReadAllText(filePath));
 
             if (HasNullProperties(deserializedObject))
                 Log.Warn($"File at path '{filePath}' contains null properties");
-            
+
             return deserializedObject;
         }
 
@@ -47,7 +46,7 @@ namespace ASRR.Core.Persistence
         }
 
         private string FilePath<T>() where T : class
-        {            
+        {
             return Path.Combine(_path, $"{FileName<T>()}.json");
         }
 
@@ -55,7 +54,7 @@ namespace ASRR.Core.Persistence
         {
             return typeof(T).Name;
         }
-        
+
         private bool HasNullProperties<T>(T obj)
         {
             var type = obj.GetType();
