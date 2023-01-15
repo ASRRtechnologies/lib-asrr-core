@@ -16,3 +16,12 @@ C:\Users\Administrator\source\repos\Digibase.Modelleerversneller\lib\asrr\lib-as
 C:\Users\Administrator\source\repos\Digibase.Modelleerversneller\lib\asrr\lib-asrr-core\obj\Release\ASRR.Core.csproj.CopyComplete
 C:\Users\Administrator\source\repos\Digibase.Modelleerversneller\lib\asrr\lib-asrr-core\obj\Release\ASRR.Core.dll
 C:\Users\Administrator\source\repos\Digibase.Modelleerversneller\lib\asrr\lib-asrr-core\obj\Release\ASRR.Core.pdb
+C:\Users\Administrator\source\repos\hw-revit-worker\lib\asrr\lib-asrr-core\bin\Release\ASRR.Core.dll
+C:\Users\Administrator\source\repos\hw-revit-worker\lib\asrr\lib-asrr-core\bin\Release\ASRR.Core.pdb
+C:\Users\Administrator\source\repos\hw-revit-worker\lib\asrr\lib-asrr-core\bin\Release\Newtonsoft.Json.dll
+C:\Users\Administrator\source\repos\hw-revit-worker\lib\asrr\lib-asrr-core\bin\Release\NLog.dll
+C:\Users\Administrator\source\repos\hw-revit-worker\lib\asrr\lib-asrr-core\obj\Release\ASRR.Core.csproj.AssemblyReference.cache
+C:\Users\Administrator\source\repos\hw-revit-worker\lib\asrr\lib-asrr-core\obj\Release\ASRR.Core.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\source\repos\hw-revit-worker\lib\asrr\lib-asrr-core\obj\Release\ASRR.Core.csproj.CopyComplete
+C:\Users\Administrator\source\repos\hw-revit-worker\lib\asrr\lib-asrr-core\obj\Release\ASRR.Core.dll
+C:\Users\Administrator\source\repos\hw-revit-worker\lib\asrr\lib-asrr-core\obj\Release\ASRR.Core.pdb
