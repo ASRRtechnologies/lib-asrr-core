@@ -1,6 +1,6 @@
 using System.IO;
 
-namespace ASRR.Core.File.Service
+namespace ASRR.Core.FileManagement.Service
 {
     public static class FileValidator
     {

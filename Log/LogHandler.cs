@@ -4,6 +4,7 @@ using System.Linq;
 using NLog;
 using NLog.Config;
 using NLog.Targets;
+using static System.IO.File;
 
 namespace ASRR.Core.Log
 {
@@ -20,10 +21,10 @@ namespace ASRR.Core.Log
                     Directory.CreateDirectory(fileInfo.DirectoryName);
 
 
-                if (!File.Exists(configuration.LogFilePath))
-                    File.Create(configuration.LogFilePath);
+                if (!Exists(configuration.LogFilePath))
+                    Create(configuration.LogFilePath);
 
-                if (File.ReadAllLines(configuration.LogFilePath).ToList().Count() >
+                if (ReadAllLines(configuration.LogFilePath).ToList().Count() >
                     10000) //Archive file with timestamp, delete old file
                 {
                     var date = DateTime.Now.ToString().Replace('/', '-');
@@ -31,9 +32,9 @@ namespace ASRR.Core.Log
                     var dirPath = Path.GetDirectoryName(configuration.LogFilePath);
                     var fileName = Path.GetFileName(configuration.LogFilePath);
                     fileName = fileName.Replace(".log", date + ".log");
-                    File.Copy(configuration.LogFilePath, Path.Combine(dirPath, fileName));
-                    File.Delete(configuration.LogFilePath);
-                    File.Create(configuration.LogFilePath);
+                    Copy(configuration.LogFilePath, Path.Combine(dirPath, fileName));
+                    Delete(configuration.LogFilePath);
+                    Create(configuration.LogFilePath);
                 }
             }
             catch
