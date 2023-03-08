@@ -27,8 +27,6 @@ namespace ASRR.Core.Persistence
                 Log.Info("Settings don't exist... creating new file");
             }
 
-
-
             var deserializedObject = JsonConvert.DeserializeObject<T>(File.ReadAllText(filePath));
 
             if (HasNullProperties(deserializedObject))
