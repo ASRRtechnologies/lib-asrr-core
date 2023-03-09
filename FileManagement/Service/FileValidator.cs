@@ -12,7 +12,7 @@ namespace ASRR.Core.FileManagement.Service
                    !path.EndsWith("?") && !path.EndsWith("\"") && !path.EndsWith("<") &&
                    !path.EndsWith(">") && !path.EndsWith("|");
         }
-        
+
         public static bool EnsureFolderExists(string folderPath)
         {
             if (!Directory.Exists(folderPath))

@@ -1,9 +1,9 @@
-﻿using System;
-using System.IO;
-using System.Linq;
-using NLog;
+﻿using NLog;
 using NLog.Config;
 using NLog.Targets;
+using System;
+using System.IO;
+using System.Linq;
 using static System.IO.File;
 
 namespace ASRR.Core.Log

@@ -1,8 +1,8 @@
+using Newtonsoft.Json;
+using NLog;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using Newtonsoft.Json;
-using NLog;
 
 namespace ASRR.Core.Persistence
 {
