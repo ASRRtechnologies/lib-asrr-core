@@ -2,7 +2,7 @@
 
 namespace ASRR.Core.MathUtils
 {
-    public class MathUtils
+    public class MathUtilities
     {
         public static double DegreesToRadians(double degrees)
         {
@@ -13,7 +13,6 @@ namespace ASRR.Core.MathUtils
         {
             return radians * 180 / Math.PI;
         }
-
 
         public static bool ApproximateEquals(double one, double two, double epsilon = 0.05)
         {
