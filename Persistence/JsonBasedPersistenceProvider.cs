@@ -45,6 +45,14 @@ namespace ASRR.Core.Persistence
             return true;
         }
 
+        public void Open<T>() where T : class
+        {
+            // open filepath using default program
+            var filePath = FilePath<T>();
+            Log.Info($"Opening file at path '{filePath}'");
+            System.Diagnostics.Process.Start(@filePath);
+        }
+
         private string FilePath<T>() where T : class
         {
             return Path.Combine(_path, $"{FileName<T>()}.json");
