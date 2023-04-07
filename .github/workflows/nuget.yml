@@ -11,12 +11,12 @@ on:
 
 env:
   PROJECT_PATH: ASRR.Core.csproj
-  PACKAGE_OUTPUT_DIRECTORY: ${{ github.workspace }}\output
+  PACKAGE_OUTPUT_DIRECTORY: ${{ github.workspace }}\Output
   NUGET_URL: https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json
 
 jobs:
   deploy:
-    name: Deploy
+    name: Deploy NuGet package
     runs-on: windows-latest
     steps:
     - name: Checkout
@@ -44,13 +44,14 @@ jobs:
         echo "CommitsSinceVersionSource: ${{ steps.gitversion.outputs.CommitsSinceVersionSource }}"     
 
     - name: 'Restore packages'
-      run: dotnet restore ${{ env.PROJECT_PATH }}
+      run: nuget restore ${{ env.PROJECT_PATH }}
 
     - name: 'Build project'
-      run: dotnet build ${{ env.PROJECT_PATH }} --no-restore --configuration Release
+      run: |
+        msbuild ${{ env.PROJECT_PATH }} /t:Clean,Build /p:platform="Any CPU" /p:Configuration=Release
 
     - name: 'Pack project'
-      run: dotnet pack ${{ env.PROJECT_PATH }} --no-restore --no-build --configuration Release --include-symbols -p:PackageVersion=${{ steps.gitversion.outputs.majorMinorPatch }} --output ${{ env.PACKAGE_OUTPUT_DIRECTORY }}
+      run:  nuget pack ${{ env.PROJECT_PATH }} -Properties Configuration=Release -Version ${{ steps.gitversion.outputs.majorMinorPatch }} -OutputDirectory ${{ env.PACKAGE_OUTPUT_DIRECTORY }}
 
     - name: 'Push package'
-      run: dotnet nuget push ${{ env.PACKAGE_OUTPUT_DIRECTORY }}\*.nupkg -k ${{ secrets.GITHUB_TOKEN }} -s ${{ env.NUGET_URL }}
+      run: nuget push ${{ env.PACKAGE_OUTPUT_DIRECTORY }}\*.nupkg -ApiKey ${{ secrets.GITHUB_TOKEN }} -Source ${{ env.NUGET_URL }}

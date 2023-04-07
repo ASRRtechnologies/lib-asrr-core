@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>ASRR</authors>
+    <!-- <icon>icon.png</icon> -->
+    <projectUrl>https://github.com/ASRRtechnologies/lib-asrr-core</projectUrl>
+    <description>A collection of useful function when dealing with C#</description>
+    <releaseNotes>Add automatic deployment to internal NuGet repo on push</releaseNotes>
+    <copyright>$copyright$</copyright>
+    <tags>ASRR C# CoreLib</tags>
+  </metadata>
+</package>
