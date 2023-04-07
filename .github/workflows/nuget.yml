@@ -56,5 +56,10 @@ jobs:
     - name: 'Pack project'
       run:  nuget pack ${{ env.PROJECT_PATH }} -Properties Configuration=Release -Version ${{ steps.gitversion.outputs.majorMinorPatch }} -OutputDirectory ${{ env.PACKAGE_OUTPUT_DIRECTORY }}
 
+    - name: 'Prep package'
+      run: |
+        dotnet nuget add source --username ${{ github.actor }} --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/ASRRtechnologies/index.json"
+
     - name: 'Push package'
-      run: nuget push ${{ env.PACKAGE_OUTPUT_DIRECTORY }}\*.nupkg -ApiKey ${{ secrets.NUGET_API_KEY }} -Source ${{ env.NUGET_URL }}
+      run: |
+        dotnet nuget push ${{ env.PACKAGE_OUTPUT_DIRECTORY }}/*.nupkg --api-key ${{ secrets.GITHUB_TOKEN }}  --source "github"
