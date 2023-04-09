@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ASRR.Core.MathUtils
+namespace ASRR.Core.Utilities
 {
     public class MathUtilities
     {

@@ -34,3 +34,12 @@ C:\Users\Administrator\source\repos\Digibase.Modelleerversneller\lib\asrr\core\o
 C:\Users\Administrator\source\repos\Digibase.Modelleerversneller\lib\asrr\core\obj\Release\ASRR.Core.csproj.CopyComplete
 C:\Users\Administrator\source\repos\Digibase.Modelleerversneller\lib\asrr\core\obj\Release\ASRR.Core.dll
 C:\Users\Administrator\source\repos\Digibase.Modelleerversneller\lib\asrr\core\obj\Release\ASRR.Core.pdb
+C:\asrr\projects\digibase\digibase-modelleerversneller-revit-addin\lib\asrr\core\bin\Release\ASRR.Core.dll
+C:\asrr\projects\digibase\digibase-modelleerversneller-revit-addin\lib\asrr\core\bin\Release\ASRR.Core.pdb
+C:\asrr\projects\digibase\digibase-modelleerversneller-revit-addin\lib\asrr\core\bin\Release\Newtonsoft.Json.dll
+C:\asrr\projects\digibase\digibase-modelleerversneller-revit-addin\lib\asrr\core\bin\Release\NLog.dll
+C:\asrr\projects\digibase\digibase-modelleerversneller-revit-addin\lib\asrr\core\obj\Release\ASRR.Core.csproj.AssemblyReference.cache
+C:\asrr\projects\digibase\digibase-modelleerversneller-revit-addin\lib\asrr\core\obj\Release\ASRR.Core.csproj.CoreCompileInputs.cache
+C:\asrr\projects\digibase\digibase-modelleerversneller-revit-addin\lib\asrr\core\obj\Release\ASRR.Core.csproj.CopyComplete
+C:\asrr\projects\digibase\digibase-modelleerversneller-revit-addin\lib\asrr\core\obj\Release\ASRR.Core.dll
+C:\asrr\projects\digibase\digibase-modelleerversneller-revit-addin\lib\asrr\core\obj\Release\ASRR.Core.pdb
