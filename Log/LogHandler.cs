@@ -94,6 +94,7 @@ namespace ASRR.Core.Log
 
         public static void AddDefaultTempLogTarget(string name, string logFilePath)
         {
+
             var defaultConfiguration = new NLogBasedLogConfiguration
             {
                 OpenOnStartUp = false,
