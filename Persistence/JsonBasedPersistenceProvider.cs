@@ -1,8 +1,9 @@
+using System;
 using Newtonsoft.Json;
-using NLog;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using NLog;
 
 namespace ASRR.Core.Persistence
 {
@@ -27,9 +28,10 @@ namespace ASRR.Core.Persistence
                 Log.Info("Settings don't exist... creating new file");
             }
 
-
-
             var deserializedObject = JsonConvert.DeserializeObject<T>(File.ReadAllText(filePath));
+
+            // Attempt to override with environment variables
+            OverrideWithEnvironmentVariables(deserializedObject);
 
             if (HasNullProperties(deserializedObject))
                 Log.Warn($"File at path '{filePath}' contains null properties");
@@ -47,7 +49,6 @@ namespace ASRR.Core.Persistence
 
         public void Open<T>() where T : class
         {
-            // open filepath using default program
             var filePath = FilePath<T>();
             Log.Info($"Opening file at path '{filePath}'");
             System.Diagnostics.Process.Start(@filePath);
@@ -69,6 +70,59 @@ namespace ASRR.Core.Persistence
             var properties = type.GetProperties(BindingFlags.Public | BindingFlags.Instance);
             return properties.Select(x => x.GetValue(obj, null))
                 .Any(y => y == null);
+        }
+
+        private void OverrideWithEnvironmentVariables<T>(T obj)
+        {
+            Log.Info("Attempting to override properties with environment variables");
+            if (obj == null) return;
+
+            var properties = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance);
+            foreach (var property in properties)
+            {
+                if (property.CanWrite)
+                {
+                    // Only process properties of type string or number
+                    if (property.PropertyType == typeof(string) ||
+                        property.PropertyType.IsPrimitive ||
+                        property.PropertyType == typeof(decimal))
+                    {
+                        var envVarName = ConvertToCamelCaseUpper(property.Name);
+                        var envVarValue = Environment.GetEnvironmentVariable(envVarName);
+                        Log.Info($"Checking environment variable '{envVarName}' for property '{property.Name}'");
+                        Log.Info($"Value: {envVarValue}");
+
+
+                        if (!string.IsNullOrEmpty(envVarValue))
+                        {
+                            try
+                            {
+                                object convertedValue;
+                                if (property.PropertyType == typeof(string))
+                                {
+                                    convertedValue = envVarValue;
+                                }
+                                else
+                                {
+                                    convertedValue = Convert.ChangeType(envVarValue, property.PropertyType);
+                                }
+
+                                property.SetValue(obj, convertedValue);
+                                Log.Info($"Property '{property.Name}' overridden with environment variable value.");
+                            }
+                            catch (Exception ex)
+                            {
+                                Log.Warn($"Failed to convert environment variable value for property '{property.Name}': {ex.Message}");
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private string ConvertToCamelCaseUpper(string propertyName)
+        {
+            return string.Concat(propertyName.Select((x, i) => char.IsUpper(x) && i > 0 ? "_" + x : char.ToUpper(x).ToString()));
         }
     }
 }
