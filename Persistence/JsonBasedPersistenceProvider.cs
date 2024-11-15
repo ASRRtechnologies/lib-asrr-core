@@ -100,6 +100,7 @@ namespace ASRR.Core.Persistence
                                 object convertedValue;
                                 if (property.PropertyType == typeof(string))
                                 {
+
                                     convertedValue = envVarValue;
                                 }
                                 else
