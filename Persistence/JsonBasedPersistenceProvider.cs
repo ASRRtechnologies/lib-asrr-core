@@ -47,9 +47,14 @@ namespace ASRR.Core.Persistence
             return true;
         }
 
-        public void Open<T>() where T : class
+        public void Open<T>() where T : class, new()
         {
             var filePath = FilePath<T>();
+            if (!File.Exists(filePath))
+            {
+                File.WriteAllText(filePath, JsonConvert.SerializeObject(new T(), Formatting.Indented));
+                Log.Info("Settings don't exist... creating new file");
+            }
             Log.Info($"Opening file at path '{filePath}'");
             System.Diagnostics.Process.Start(@filePath);
         }

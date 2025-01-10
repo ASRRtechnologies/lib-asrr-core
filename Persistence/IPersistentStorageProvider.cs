@@ -7,6 +7,6 @@ namespace ASRR.Core.Persistence
 
         bool Persist<T>(T toStore) where T : class;
 
-        void Open<T>() where T : class;
+        void Open<T>() where T : class, new();
     }
 }
