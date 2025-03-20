@@ -80,7 +80,11 @@ namespace ASRR.Core.Persistence
         private void OverrideWithEnvironmentVariables<T>(T obj)
         {
             Log.Info("Attempting to override properties with environment variables");
-            if (obj == null) return;
+            if (obj == null)
+            {
+                Log.Warn("Object is null, cannot override properties with environment variables");
+                return;
+            }
 
             var properties = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance);
             foreach (var property in properties)
@@ -95,22 +99,21 @@ namespace ASRR.Core.Persistence
                         var envVarName = ConvertToCamelCaseUpper(property.Name);
                         var envVarValue = Environment.GetEnvironmentVariable(envVarName);
                         Log.Info($"Checking environment variable '{envVarName}' for property '{property.Name}'");
-                        Log.Info($"Value: {envVarValue}");
 
-
-                        if (!string.IsNullOrEmpty(envVarValue))
+                        if (!string.IsNullOrEmpty(envVarValue) || !string.IsNullOrWhiteSpace(envVarValue))
                         {
                             try
                             {
                                 object convertedValue;
                                 if (property.PropertyType == typeof(string))
                                 {
-
                                     convertedValue = envVarValue;
+                                    Log.Info($"Value: {envVarValue}");
                                 }
                                 else
                                 {
                                     convertedValue = Convert.ChangeType(envVarValue, property.PropertyType);
+                                    Log.Info($"Value: {convertedValue}");
                                 }
 
                                 property.SetValue(obj, convertedValue);
@@ -120,6 +123,8 @@ namespace ASRR.Core.Persistence
                             {
                                 Log.Warn($"Failed to convert environment variable value for property '{property.Name}': {ex.Message}");
                             }
+                        } else {
+                            Log.Info($"Environment variable '{envVarName}' is empty or null");
                         }
                     }
                 }
