@@ -97,8 +97,11 @@ namespace ASRR.Core.Persistence
                         property.PropertyType == typeof(decimal))
                     {
                         var envVarName = ConvertToCamelCaseUpper(property.Name);
-                        var envVarValue = Environment.GetEnvironmentVariable(envVarName);
+                        var envVarValue = Environment.GetEnvironmentVariable(envVarName, EnvironmentVariableTarget.User 
+                                    
+                                );
                         Log.Info($"Checking environment variable '{envVarName}' for property '{property.Name}'");
+                        Log.Info($"Value: {envVarValue}");
 
                         if (!string.IsNullOrEmpty(envVarValue) || !string.IsNullOrWhiteSpace(envVarValue))
                         {
