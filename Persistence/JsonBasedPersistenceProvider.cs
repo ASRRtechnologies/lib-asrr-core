@@ -19,7 +19,7 @@ namespace ASRR.Core.Persistence
             Directory.CreateDirectory(_path);
         }
 
-        public T Fetch<T>() where T : class, new()
+        public T Fetch<T>(bool applyEnvironmentOverrides = false) where T : class, new()
         {
             var filePath = FilePath<T>();
             if (!File.Exists(filePath))
@@ -28,10 +28,13 @@ namespace ASRR.Core.Persistence
                 Log.Info("Settings don't exist... creating new file");
             }
 
-            var deserializedObject = JsonConvert.DeserializeObject<T>(File.ReadAllText(filePath));
+            var deserializedObject = JsonConvert.DeserializeObject<T>(File.ReadAllText(filePath)) ?? new T();
 
             // Attempt to override with environment variables
-            OverrideWithEnvironmentVariables(deserializedObject);
+            if (applyEnvironmentOverrides && OverrideWithEnvironmentVariables(deserializedObject))
+            {
+                Persist(deserializedObject);  
+            }
 
             if (HasNullProperties(deserializedObject))
                 Log.Warn($"File at path '{filePath}' contains null properties");
@@ -77,15 +80,16 @@ namespace ASRR.Core.Persistence
                 .Any(y => y == null);
         }
 
-        private void OverrideWithEnvironmentVariables<T>(T obj)
+        private bool OverrideWithEnvironmentVariables<T>(T obj)
         {
             Log.Info("Attempting to override properties with environment variables");
             if (obj == null)
             {
                 Log.Warn("Object is null, cannot override properties with environment variables");
-                return;
+                return false;
             }
 
+            var changed = false;
             var properties = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance);
             foreach (var property in properties)
             {
@@ -100,10 +104,8 @@ namespace ASRR.Core.Persistence
                         var envVarValue = Environment.GetEnvironmentVariable(envVarName, EnvironmentVariableTarget.User) ?? 
                             Environment.GetEnvironmentVariable(envVarName, EnvironmentVariableTarget.Machine) ??
                             Environment.GetEnvironmentVariable(envVarName, EnvironmentVariableTarget.Process);
-                        Log.Info($"Checking environment variable '{envVarName}' for property '{property.Name}'");
-                        Log.Info($"Value: {envVarValue}");
 
-                        if (!string.IsNullOrEmpty(envVarValue) || !string.IsNullOrWhiteSpace(envVarValue))
+                        if (!string.IsNullOrWhiteSpace(envVarValue))
                         {
                             try
                             {
@@ -111,16 +113,15 @@ namespace ASRR.Core.Persistence
                                 if (property.PropertyType == typeof(string))
                                 {
                                     convertedValue = envVarValue;
-                                    Log.Info($"Value: {envVarValue}");
                                 }
                                 else
                                 {
                                     convertedValue = Convert.ChangeType(envVarValue, property.PropertyType);
-                                    Log.Info($"Value: {convertedValue}");
                                 }
 
                                 property.SetValue(obj, convertedValue);
-                                Log.Info($"Property '{property.Name}' overridden with environment variable value.");
+                                changed = true;
+                                Log.Info($"Property '{property.Name}' overridden with environment variable value: {convertedValue}");
                             }
                             catch (Exception ex)
                             {
@@ -132,6 +133,8 @@ namespace ASRR.Core.Persistence
                     }
                 }
             }
+
+            return changed;
         }
 
         private string ConvertToCamelCaseUpper(string propertyName)
